@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>5e take 3</title>
+        <link href="/static/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+
+        <style>
+            #sheet-container {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                width: 900px;
+                display: block;
+            }
+
+            #sheet-container {
+                width: 850px;
+                display: block;
+            }
+
+            #sheet-header {
+                width: 900px;
+                height: 140px;
+                background: url(/static/CharScroll.svg) no-repeat;
+                background-size: cover;
+            }
+
+            #sheet-body {
+                width: 750px;
+                height: 900px;
+                margin: 22px 50px 0 50px;
+                background-color: #3FB315;
+            }
+
+            .sheet-col {
+                width: 33%;
+            }
+
+            .sheet-col-following {
+                margin-left: .5%;
+            }
+
+            .sheet-textbox {
+                position: relative;
+                box-sizing: border-box;
+                width: 100%;
+                min-height: 6em;
+                margin-top: 5px;
+                border: 15px solid black;
+            }
+
+            .sheet-textbox-top {
+                border-image-source: url(/static/vital-top.svg);
+                border-image-slice: 35 15;
+                border-image-width: auto;
+                border-image-repeat: round;
+            }
+
+            .sheet-textbox-mid {
+                border-image-source: url(/static/vital-mid.svg);
+                border-image-slice: 35 15;
+                border-image-width: auto;
+                border-image-repeat: round;
+            }
+
+            .sheet-textbox-bottom {
+                border-image-source: url(/static/vital-bottom.svg);
+                border-image-slice: 35 15;
+                border-image-width: auto;
+                border-image-repeat: round;
+            }
+
+            .sheet-saving-throw-container, .sheet-skills-container {
+                position: relative;
+                box-sizing: border-box;
+                padding: 5px 5px 15px;
+                border: 10px solid black;
+                border-image-source: url(/static/saves.svg);
+                border-image-slice: 65 10;
+                border-image-width: auto;
+                border-image-repeat: round;
+            }
+
+            .sheet-textarea {
+                height: calc(100% - 10px);
+                width: 100%;
+                resize: vertical;
+                border: none;
+                margin: 0;
+                padding-bottom: 0;
+            }
+
+            .sheet-label {
+                display: block;
+                font-size: 9px;
+                line-height: 12px;
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .sheet-name-container {
+                width: 250px;
+                display: inline-block;
+                margin-left: 60px;
+                margin-top: 72px;
+            }
+
+            #character-name {
+                border-bottom: 1px solid #D3D3D3;
+                border-top: 0;
+                border-right: 0;
+                border-left: 0;
+                background: none;
+                box-shadow: none;
+            }
+
+            .sheet-header-info {
+                margin: 44px 14px 0 72px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                background: url(/static/CharBox.svg) 0;
+                background-size: cover;
+                width: 468px;
+            }
+
+            .sheet-top, .sheet-bottom {
+                width: 440px;
+                margin-left: 14px;
+            }
+
+            .sheet-header-label {
+                display: block;
+                font-size: 9px;
+                line-height: 12px;
+                width: 100%;
+                text-align: left;
+                font-weight: bold;
+            }
+
+            .sheet-top > div > input,
+            .sheet-bottom > div > input {
+                height: 24px;
+                border-bottom: 1px solid #D3D3D3;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+                background: none;
+                box-shadow: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+                color: black;
+            }
+
+            #class, #class > input {
+                width: 298px;
+            }
+
+            #background, #background > input {
+                width: 138px;
+            }
+
+            #race, #race > input {
+                width: 200px;
+            }
+
+            #alignment, #alignment > input {
+                width: 140px;
+            }
+
+            #experience, #experience > input {
+                width: 98px;
+            }
+
+            .sheet-attr-container {
+                width: auto;
+                border: 0;
+                margin: 8px 0 0;
+                background: url(/static/ability.svg) no-repeat top center;
+                background-size: contain;
+            }
+
+            #attributes-container {
+                margin: 0;
+                background: url(/static/ability-back.svg) no-repeat;
+                background-size: cover;
+                width: 70px;
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+            }
+
+            .attr-label {
+                font-size: 6.5px;
+                width: 100%;
+                margin-bottom: 0;
+            }
+
+            .sheet-attr {
+                width: 100%;
+                line-height: 40px;
+                font-size: 35px;
+                font-weight: bold;
+                position: relative;
+                top: -5px;
+            }
+
+            .sheet-attr-mod {
+                margin-top: -15px;
+            }
+
+            .sheet-skills-saves-container {
+                width: 163px;
+                margin-right: 5px;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .sheet-insp-prof-container {
+                background: url(/static/proficency-bonus.svg) no-repeat;
+                background-size: cover;
+                height: 50px;
+                margin-bottom: 2px;
+            }
+
+            .sheet-insp-prof-container span {
+                display: block;
+                font-size: 9px;
+                width: 100%;
+                text-align: center;
+                line-height: 30px;
+                font-weight: bold;
+            }
+
+            .sheet-insp-prof-container .sheet-label {
+                width: calc(100% - 42px);
+                margin-left: -3px;
+                margin-top: 10px;
+                display: inline-block;
+                border-radius: 5px;
+                vertical-align: top;
+            }
+
+            .sheet-insp-prof-container .sheet-value {
+                margin-top: 8px;
+                margin-left: 6px;
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                float: left;
+            }
+
+            .sheet-insp-prof-container .sheet-value span {
+                font-size: 20px;
+                font-weight: normal;
+                line-height: 34px;
+            }
+
+            .sheet-insp-prof-container span {
+                display: block;
+                font-size: 9px;
+                width: 100%;
+                text-align: center;
+                line-height: 30px;
+                font-weight: bold;
+            }
+
+            .sheet-saving-throw > span.sheet-label,
+            .sheet-skill > span.sheet-label {
+                display: initial;
+            }
+
+            .skill-bonus, .save-bonus {
+                font-size: 12px;
+                display: inline-block;
+                text-align: center;
+                min-width: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="sheet-container">
+            <div id="sheet-core">
+                <div id="sheet-header" class="row">
+                    <div class="sheet-name-container">
+                        <input id="character-name" style="width: 100%" type="text">
+                        <span class="sheet-label" style="margin-top: 15px; text-align: left;margin-left: 30px;">CHARACTER NAME</span>
+                    </div>
+                    <div class="sheet-header-info sheet-display">
+                        <div class="sheet-top row">
+                            <div class="sheet-hlabel-container">
+                                <input id="class" class="sheet-class-display sheet-no_events" type="text">
+                                <span class="sheet-header-label">CLASS &amp; LEVEL</span>
+                            </div>
+                            <div class="sheet-hlabel-container">
+                                <input id="background" type="text">
+                                <span class="sheet-header-label">BACKGROUND</span>
+                            </div>
+                        </div>
+                        <div class="sheet-bottom row">
+                            <div class="sheet-hlabel-container">
+                                <input id="race" class="sheet-no_events" type="text">
+                                <span class="sheet-header-label">RACE</span>
+                            </div>
+                            <div class="sheet-hlabel-container">
+                                <input id="alignment" type="text">
+                                <span class="sheet-header-label">ALIGNMENT</span>
+                            </div>
+                            <div class="sheet-hlabel-container" style="position: relative">
+                                <input id="experience" type="text">
+                                <span class="sheet-header-label">EXPERIENCE POINTS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sheet-body" class="row">
+                    <div class="sheet-col" style="background-color: white">
+                        <div id="attributes-container" style="margin-top: 10px">
+                            <div class="sheet-attr-container" style="margin-top: 20px">
+                                <label class="attr-label">STRENGTH</label>
+                                <label id="strength_mod" class="sheet-attr" title="Strength mod">3</label>
+                                <div class="sheet-attr-mod">
+                                    <span id="strength" class="sheet-finalattr">17</span>
+                                </div>
+                            </div>
+                            <div class="sheet-attr-container">
+                                <label class="attr-label">DEXTERITY</label>
+                                <label id="dexterity_mod" class="sheet-attr" title="Dexterity mod">3</label>
+                                <div class="sheet-attr-mod">
+                                    <span id="dexterity" class="sheet-finalattr">17</span>
+                                </div>
+                            </div>
+                            <div class="sheet-attr-container">
+                                <label class="attr-label">CONSTITUTION</label>
+                                <label id="constitution_mod" class="sheet-attr" title="Constitution mod">3</label>
+                                <div class="sheet-attr-mod">
+                                    <span id="constitution" class="sheet-finalattr">17</span>
+                                </div>
+                            </div>
+                            <div class="sheet-attr-container">
+                                <label class="attr-label">INTELLIGENCE</label>
+                                <label id="intelligence_mod" class="sheet-attr" title="Intelligence mod">3</label>
+                                <div class="sheet-attr-mod">
+                                    <span class="sheet-finalattr" name="intelligence">17</span>
+                                </div>
+                            </div>
+                            <div class="sheet-attr-container">
+                                <label class="attr-label">WISDOM</label>
+                                <label id="wisdom_mod" class="sheet-attr" title="Wisdom mod">3</label>
+                                <div class="sheet-attr-mod">
+                                    <span class="sheet-finalattr" name="wisdom">17</span>
+                                </div>
+                            </div>
+                            <div class="sheet-attr-container" style="margin-bottom: 20px">
+                                <label class="attr-label">CHARISMA</label>
+                                <label id="charisma_mod" class="sheet-attr" title="Charisma mod">3</label>
+                                <div class="sheet-attr-mod">
+                                    <span class="sheet-finalattr" name="charisma">17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-skills-saves-container">
+                            <div class="sheet-insp-prof-container">
+                                <div class="sheet-value">
+                                    <span id="proficiency-bonus" title="Proficiency Bonus">2</span>
+                                </div>
+                                <div class="sheet-label">
+                                    <span>PROFICIENCY BONUS</span>
+                                </div>
+                            </div>
+                            <div class="sheet-saving-throw-container">
+                                <div class="sheet-saving-throw">
+                                    <input id="strength_save_prof" title="Strength save proficiency" type="checkbox">
+                                    <span id="strength_save_bonus" class="save-bonus" title="Strength save bonus">5</span>
+                                    <span class="sheet-label">Strength</span>
+                                </div>
+                                <div class="sheet-saving-throw">
+                                    <input id="dexterity_save_prof" title="Dexterity save proficiency" type="checkbox">
+                                    <span id="dexterity_save_bonus" class="save-bonus" title="Dexterity save bonus">5</span>
+                                    <span class="sheet-label">Dexterity</span>
+                                </div>
+                                <div class="sheet-saving-throw">
+                                    <input id="constitution_save_prof" title="Constitution save proficiency" type="checkbox">
+                                    <span id="constitution_save_bonus" class="save-bonus" title="Constitution save bonus">5</span>
+                                    <span class="sheet-label">Constitution</span>
+                                </div>
+                                <div class="sheet-saving-throw">
+                                    <input id="intelligence_save_prof" title="Intelligence save proficiency" type="checkbox">
+                                    <span id="intelligence_save_bonus" class="save-bonus" title="Intelligence save bonus">5</span>
+                                    <span class="sheet-label">Intelligence</span>
+                                </div>
+                                <div class="sheet-saving-throw">
+                                    <input id="wisdom_save_prof" title="Wisdom save proficiency}" type="checkbox">
+                                    <span id="wisdom_save_bonus" class="save-bonus" title="Wisdom save bonus}">5</span>
+                                    <span class="sheet-label">Wisdom</span>
+                                </div>
+                                <div class="sheet-saving-throw">
+                                    <input id="charisma_save_prof" title="Charisma save proficiency" type="checkbox">
+                                    <span id="charisma_save_bonus" class="save-bonus" title="Charisma save bonus">5</span>
+                                    <span class="sheet-label">Charisma</span>
+                                </div>
+                                <div class="sheet-label" style="margin-bottom: -10px">
+                                    <span>SAVING THROWS</span>
+                                </div>
+                            </div>
+                            <div class="sheet-skills-container sheet-skills-list">
+                                <div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_acrobatics_prof" title="acrobatics_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_acrobatics_bonus" title="acrobatics_bonus">3</span>
+                                        <span class="sheet-label">Acrobatics(Dex)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_animal_handling_prof" title="animal_handling_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_animal_handling_bonus" title="animal_handling_bonus">2</span>
+                                        <span class="sheet-label">Animal Handling(Wis)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_arcana_prof" title="arcana_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_arcana_bonus" title="arcana_bonus">1</span>
+                                        <span class="sheet-label">Arcana(Int)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_athletics_prof" title="athletics_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_athletics_bonus" title="athletics_bonus">5</span>
+                                        <span class="sheet-label">Athletics(Str)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_deception_prof" title="deception_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_deception_bonus" title="deception_bonus">2</span>
+                                        <span class="sheet-label">Deception(Cha)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_history_prof" title="history_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_history_bonus" title="history_bonus">1</span>
+                                        <span class="sheet-label">History(Int)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_insight_prof" title="insight_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_insight_bonus" title="insight_bonus">2</span>
+                                        <span class="sheet-label">Insight(Wis)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_intimidation_prof" title="intimidation_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_intimidation_bonus" title="intimidation_bonus">4</span>
+                                        <span class="sheet-label">Intimidation(Cha)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_investigation_prof" title="investigation_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_investigation_bonus" title="investigation_bonus">1</span>
+                                        <span class="sheet-label">Investigation(Int)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_medicine_prof" title="medicine_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_medicine_bonus" title="medicine_bonus">2</span>
+                                        <span class="sheet-label">Medicine(Wis)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_nature_prof" title="nature_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_nature_bonus" title="nature_bonus">1</span>
+                                        <span class="sheet-label">Nature(Int)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_perception_prof" title="perception_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_perception_bonus" title="perception_bonus">4</span>
+                                        <span class="sheet-label">Perception(Wis)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_performance_prof" title="performance_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_performance_bonus" title="performance_bonus">2</span>
+                                        <span class="sheet-label">Performance(Cha)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_persuasion_prof" title="persuasion_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_persuasion_bonus" title="persuasion_bonus">2</span>
+                                        <span class="sheet-label">Persuasion(Cha)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_religion_prof" title="religion_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_religion_bonus" title="religion_bonus">1</span>
+                                        <span class="sheet-label">Religion(Int)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_sleight_of_hand_prof" title="sleight_of_hand_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_sleight_of_hand_bonus" title="sleight_of_hand_bonus">3</span>
+                                        <span class="sheet-label">Sleight of Hand(Dex)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_stealth_prof" title="stealth_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_stealth_bonus" title="stealth_bonus">5</span>
+                                        <span class="sheet-label">Stealth(Dex)</span>
+                                    </div>
+                                    <div class="sheet-skill">
+                                        <input name="attr_survival_prof" title="survival_prof" type="checkbox">
+                                        <span class="skill-bonus" name="attr_survival_bonus" title="survival_bonus">2</span>
+                                        <span class="sheet-label">Survival(Wis)</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-label" style="margin-bottom: -10px">
+                                    <span>SKILLS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-col sheet-col-following" style="background-color: coral;height: 300px;">
+                    </div>
+                    <div class="sheet-col sheet-col-following" style="background-color: white">
+                        <div id="personality-traits" class="sheet-textbox sheet-textbox-top">
+                            <div class="sheet-options">
+                                <textarea class="sheet-textarea" name="attr_personality_traits" style="min-height: 50px ; height: 50px"></textarea>
+                            </div>
+                            <div class="sheet-display">
+                                <span id="personality-traits-text"></span>
+                            </div>
+                            <span class="sheet-label">PERSONALITY TRAITS</span>
+                        </div>
+                        <div id="ideals" class="sheet-textbox sheet-textbox-mid">
+                            <div class="sheet-options">
+                                <textarea class="sheet-textarea" name="ideas-text" style="min-height: 50px ; height: 50px"></textarea>
+                            </div>
+                            <span class="sheet-label">IDEAS</span>
+                        </div>
+                        <div id="bonds" class="sheet-textbox sheet-textbox-mid">
+                            <div class="sheet-options">
+                                <textarea class="sheet-textarea" name="bonds-text" style="min-height: 50px ; height: 50px"></textarea>
+                            </div>
+                            <span class="sheet-label">BONDS</span>
+                        </div>
+                        <div id="flaws" class="sheet-textbox sheet-textbox-bottom">
+                            <div class="sheet-options">
+                                <textarea class="sheet-textarea" name="flaws-text" style="min-height: 50px ; height: 50px"></textarea>
+                            </div>
+                            <span class="sheet-label">FLAWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
