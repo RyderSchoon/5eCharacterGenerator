@@ -4,281 +4,9 @@
         <meta charset="UTF-8">
         <title>5e take 3</title>
         <link href="/static/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+        <link href="/static/site.css" rel="stylesheet">
+        <link href="https://cdn.rawgit.com/fponticelli/dicefont/fc6b8c47/dist/dicefont/dicefont.css" rel="stylesheet">
         <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
-
-        <style>
-            #sheet-container {
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                width: 900px;
-                display: block;
-            }
-
-            #sheet-container {
-                width: 850px;
-                display: block;
-            }
-
-            #sheet-header {
-                width: 900px;
-                height: 140px;
-                background: url(/static/CharScroll.svg) no-repeat;
-                background-size: cover;
-            }
-
-            #sheet-body {
-                width: 750px;
-                height: 900px;
-                margin: 22px 50px 0 50px;
-                background-color: #3FB315;
-            }
-
-            .sheet-col {
-                width: 33%;
-            }
-
-            .sheet-col-following {
-                margin-left: .5%;
-            }
-
-            .sheet-textbox {
-                position: relative;
-                box-sizing: border-box;
-                width: 100%;
-                min-height: 6em;
-                margin-top: 5px;
-                border: 15px solid black;
-            }
-
-            .sheet-textbox-top {
-                border-image-source: url(/static/vital-top.svg);
-                border-image-slice: 35 15;
-                border-image-width: auto;
-                border-image-repeat: round;
-            }
-
-            .sheet-textbox-mid {
-                border-image-source: url(/static/vital-mid.svg);
-                border-image-slice: 35 15;
-                border-image-width: auto;
-                border-image-repeat: round;
-            }
-
-            .sheet-textbox-bottom {
-                border-image-source: url(/static/vital-bottom.svg);
-                border-image-slice: 35 15;
-                border-image-width: auto;
-                border-image-repeat: round;
-            }
-
-            .sheet-saving-throw-container, .sheet-skills-container {
-                position: relative;
-                box-sizing: border-box;
-                padding: 5px 5px 15px;
-                border: 10px solid black;
-                border-image-source: url(/static/saves.svg);
-                border-image-slice: 65 10;
-                border-image-width: auto;
-                border-image-repeat: round;
-            }
-
-            .sheet-textarea {
-                height: calc(100% - 10px);
-                width: 100%;
-                resize: vertical;
-                border: none;
-                margin: 0;
-                padding-bottom: 0;
-            }
-
-            .sheet-label {
-                display: block;
-                font-size: 9px;
-                line-height: 12px;
-                width: 100%;
-                text-align: center;
-                font-weight: bold;
-            }
-
-            .sheet-name-container {
-                width: 250px;
-                display: inline-block;
-                margin-left: 60px;
-                margin-top: 72px;
-            }
-
-            #character-name {
-                border-bottom: 1px solid #D3D3D3;
-                border-top: 0;
-                border-right: 0;
-                border-left: 0;
-                background: none;
-                box-shadow: none;
-            }
-
-            .sheet-header-info {
-                margin: 44px 14px 0 72px;
-                padding-top: 14px;
-                padding-bottom: 14px;
-                background: url(/static/CharBox.svg) 0;
-                background-size: cover;
-                width: 468px;
-            }
-
-            .sheet-top, .sheet-bottom {
-                width: 440px;
-                margin-left: 14px;
-            }
-
-            .sheet-header-label {
-                display: block;
-                font-size: 9px;
-                line-height: 12px;
-                width: 100%;
-                text-align: left;
-                font-weight: bold;
-            }
-
-            .sheet-top > div > input,
-            .sheet-bottom > div > input {
-                height: 24px;
-                border-bottom: 1px solid #D3D3D3;
-                border-top: 0;
-                border-left: 0;
-                border-right: 0;
-                background: none;
-                box-shadow: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                -webkit-border-radius: 0;
-                border-radius: 0;
-                color: black;
-            }
-
-            #class, #class > input {
-                width: 298px;
-            }
-
-            #background, #background > input {
-                width: 138px;
-            }
-
-            #race, #race > input {
-                width: 200px;
-            }
-
-            #alignment, #alignment > input {
-                width: 140px;
-            }
-
-            #experience, #experience > input {
-                width: 98px;
-            }
-
-            .sheet-attr-container {
-                width: auto;
-                border: 0;
-                margin: 8px 0 0;
-                background: url(/static/ability.svg) no-repeat top center;
-                background-size: contain;
-            }
-
-            #attributes-container {
-                margin: 0;
-                background: url(/static/ability-back.svg) no-repeat;
-                background-size: cover;
-                width: 70px;
-                display: inline-block;
-                vertical-align: top;
-                text-align: center;
-            }
-
-            .attr-label {
-                font-size: 6.5px;
-                width: 100%;
-                margin-bottom: 0;
-            }
-
-            .sheet-attr {
-                width: 100%;
-                line-height: 40px;
-                font-size: 35px;
-                font-weight: bold;
-                position: relative;
-                top: -5px;
-            }
-
-            .sheet-attr-mod {
-                margin-top: -15px;
-            }
-
-            .sheet-skills-saves-container {
-                width: 163px;
-                margin-right: 5px;
-                display: inline-block;
-                vertical-align: top;
-            }
-
-            .sheet-insp-prof-container {
-                background: url(/static/proficency-bonus.svg) no-repeat;
-                background-size: cover;
-                height: 50px;
-                margin-bottom: 2px;
-            }
-
-            .sheet-insp-prof-container span {
-                display: block;
-                font-size: 9px;
-                width: 100%;
-                text-align: center;
-                line-height: 30px;
-                font-weight: bold;
-            }
-
-            .sheet-insp-prof-container .sheet-label {
-                width: calc(100% - 42px);
-                margin-left: -3px;
-                margin-top: 10px;
-                display: inline-block;
-                border-radius: 5px;
-                vertical-align: top;
-            }
-
-            .sheet-insp-prof-container .sheet-value {
-                margin-top: 8px;
-                margin-left: 6px;
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                float: left;
-            }
-
-            .sheet-insp-prof-container .sheet-value span {
-                font-size: 20px;
-                font-weight: normal;
-                line-height: 34px;
-            }
-
-            .sheet-insp-prof-container span {
-                display: block;
-                font-size: 9px;
-                width: 100%;
-                text-align: center;
-                line-height: 30px;
-                font-weight: bold;
-            }
-
-            .sheet-saving-throw > span.sheet-label,
-            .sheet-skill > span.sheet-label {
-                display: initial;
-            }
-
-            .skill-bonus, .save-bonus {
-                font-size: 12px;
-                display: inline-block;
-                text-align: center;
-                min-width: 15px;
-            }
-        </style>
     </head>
     <body>
         <div id="sheet-container">
@@ -289,7 +17,7 @@
                         <span class="sheet-label" style="margin-top: 15px; text-align: left;margin-left: 30px;">CHARACTER NAME</span>
                     </div>
                     <div class="sheet-header-info sheet-display">
-                        <div class="sheet-top row">
+                        <div class="sheet-top row" style="width: 440px;margin-left: 14px!important;">
                             <div class="sheet-hlabel-container">
                                 <input id="class" class="sheet-class-display sheet-no_events" type="text">
                                 <span class="sheet-header-label">CLASS &amp; LEVEL</span>
@@ -299,7 +27,7 @@
                                 <span class="sheet-header-label">BACKGROUND</span>
                             </div>
                         </div>
-                        <div class="sheet-bottom row">
+                        <div class="sheet-bottom row" style="width: 440px;margin-left: 14px!important;">
                             <div class="sheet-hlabel-container">
                                 <input id="race" class="sheet-no_events" type="text">
                                 <span class="sheet-header-label">RACE</span>
@@ -316,7 +44,7 @@
                     </div>
                 </div>
                 <div id="sheet-body" class="row">
-                    <div class="sheet-col" style="background-color: white">
+                    <div class="sheet-col">
                         <div id="attributes-container" style="margin-top: 10px">
                             <div class="sheet-attr-container" style="margin-top: 20px">
                                 <label class="attr-label">STRENGTH</label>
@@ -504,9 +232,68 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sheet-col sheet-col-following" style="background-color: coral;height: 300px;">
+                    <div class="sheet-col sheet-col-following">
+                        <div class="vitals-container">
+                            <div class="sheet-ac-init-speed-container">
+                                <div class="sheet-ac">
+                                    <input name="attr_ac" title="@{ac}" type="text">
+                                    <span class="sheet-label sheet-pc-ac" data-i18n="armor-class-u">ARMOR CLASS</span>
+                                </div>
+                                <div class="sheet-init">
+                                    <input id="initiative_bonus" title="Initiative bonus" type="text">
+                                    <span class="sheet-label">INITIATIVE</span>
+                                </div>
+                                <div class="sheet-speed">
+                                    <input id="speed" title="Speed" type="text">
+                                    <span class="sheet-label">SPEED</span>
+                                </div>
+                            </div>
+                            <div class="sheet-hp">
+                                <div class="sheet-top">
+                                    <span>Hit Point Maximum</span>
+                                    <input name="attr_hp_max" title="@{hp_max}" type="text">
+                                </div>
+                                <input name="attr_hp" title="@{hp}" type="number">
+                                <span class="sheet-label" data-i18n="hp-current-u">CURRENT HIT POINTS</span>
+                            </div>
+                            <div class="sheet-hdice-dsaves-container" style="width: 242px">
+                                <div class="sheet-subcontainer">
+                                    <div class="row" style="margin-left: 8px!important;">
+                                        <div class="sheet-money">
+                                            <div class="sheet-coin">
+                                                <span class="sheet-label">d6</span>
+                                                <span class="df-d6-6"></span>
+                                                <input name="attr_cp" title="d6" type="text">
+                                            </div>
+                                            <div class="sheet-coin">
+                                                <span class="sheet-label">d8</span>
+                                                <span class="df-d8-8"></span>
+                                                <input name="attr_sp" title="d8" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="sheet-money">
+                                            <div class="sheet-coin">
+                                                <span class="sheet-label">d10</span>
+                                                <span class="df-d10-10"></span>
+                                                <input name="attr_ep" title="d10" type="text">
+                                            </div>
+                                            <div class="sheet-coin">
+                                                <span class="sheet-label">d12</span>
+                                                <span class="df-d12-12"></span>
+                                                <input name="attr_gp" title="d12" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hit-dice-container">
+                                        <input title="Total Hit Dice" type="text">
+                                        <span class="sheet-label">TOTAL HIT DICE</span>
+                                    </div>
+                                    <span class="sheet-label">HIT DICE</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sheet-col sheet-col-following" style="background-color: white">
+                    <div class="sheet-col sheet-col-following">
                         <div id="personality-traits" class="sheet-textbox sheet-textbox-top">
                             <div class="sheet-options">
                                 <textarea class="sheet-textarea" name="attr_personality_traits" style="min-height: 50px ; height: 50px"></textarea>
