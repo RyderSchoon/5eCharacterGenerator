@@ -13,7 +13,7 @@
 #sheet-header {
     width: 900px;
     height: 140px;
-    background: url(/static/CharScroll.svg) no-repeat;
+    background: url(/static/images/CharScroll.svg) no-repeat;
     background-size: cover;
 }
 
@@ -40,21 +40,21 @@
 }
 
 .sheet-textbox-top {
-    border-image-source: url(/static/vital-top.svg);
+    border-image-source: url(/static/images/vital-top.svg);
     border-image-slice: 35 15;
     border-image-width: auto;
     border-image-repeat: round;
 }
 
 .sheet-textbox-mid {
-    border-image-source: url(/static/vital-mid.svg);
+    border-image-source: url(/static/images/vital-mid.svg);
     border-image-slice: 35 15;
     border-image-width: auto;
     border-image-repeat: round;
 }
 
 .sheet-textbox-bottom {
-    border-image-source: url(/static/vital-bottom.svg);
+    border-image-source: url(/static/images/vital-bottom.svg);
     border-image-slice: 35 15;
     border-image-width: auto;
     border-image-repeat: round;
@@ -65,7 +65,7 @@
     box-sizing: border-box;
     padding: 5px 5px 15px;
     border: 10px solid black;
-    border-image-source: url(/static/saves.svg);
+    border-image-source: url(/static/images/saves.svg);
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: round;
@@ -109,7 +109,7 @@
     margin: 44px 14px 0 72px;
     padding-top: 14px;
     padding-bottom: 14px;
-    background: url(/static/CharBox.svg) 0;
+    background: url(/static/images/CharBox.svg) 0;
     background-size: cover;
     width: 468px;
 }
@@ -163,13 +163,13 @@
     width: auto;
     border: 0;
     margin: 8px 0 0;
-    background: url(/static/ability.svg) no-repeat top center;
+    background: url(/static/images/ability.svg) no-repeat top center;
     background-size: contain;
 }
 
 #attributes-container {
     margin: 0;
-    background: url(/static/ability-back.svg) no-repeat;
+    background: url(/static/images/ability-back.svg) no-repeat;
     background-size: cover;
     width: 70px;
     display: inline-block;
@@ -204,7 +204,7 @@
 }
 
 .sheet-insp-prof-container {
-    background: url(/static/proficency-bonus.svg) no-repeat;
+    background: url(/static/images/proficency-bonus.svg) no-repeat;
     background-size: cover;
     height: 50px;
     margin-bottom: 2px;
@@ -265,7 +265,7 @@
 }
 
 .vitals-container {
-    background: url(/static/vitals.svg) no-repeat top center;
+    background: url(/static/images/vitals.svg) no-repeat top center;
     background-size: cover;
 }
 
@@ -287,14 +287,14 @@
 }
 
 .sheet-ac {
-    background: url(/static/AC.svg) no-repeat center center;
+    background: url(/static/images/AC.svg) no-repeat center center;
     background-size: contain;
     min-height: 75px;
     border: 0;
 }
 
-.sheet-init, .sheet-speed, .hit-dice-container {
-    background: url(/static/vital-box.svg) no-repeat center center;
+.sheet-init, .sheet-speed {
+    background: url(/static/images/vital-box.svg) no-repeat center center;
     background-size: contain;
     border: 0;
     min-height: 75px;
@@ -340,7 +340,7 @@
 
 .sheet-hp {
     position: relative;
-    background: url(/static/vital-top.svg) no-repeat center center;
+    background: url(/static/images/vital-top.svg) no-repeat center center;
     background-size: contain;
     border: 0;
     width: calc(100% - 16px);
@@ -348,8 +348,17 @@
     margin: 5px 8px 0;
 }
 
+.sheet-hdice-dsaves-container {
+    position: relative;
+    background: url(/static/images/vital-bottom.svg) no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: calc(100% - 16px);
+    margin: 5px 8px 0;
+}
+
 .sheet-coin {
-    background-image: url(/static/copper.svg);
+    background-image: url(/static/images/copper.svg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -438,7 +447,7 @@
 }
 
 .sheet-hdice-dsaves-container .sheet-subcontainer .row {
-    width: 62%;
+    width: 65%;
     float: left;
 }
 
