@@ -52,4 +52,3 @@ class CharacterClass:
             character.saving_throw_proficiencies.append(random_class.saving_throws[1])
 
         return character
-

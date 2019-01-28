@@ -2,6 +2,7 @@ import random
 from math import floor
 
 from models.characterClass import CharacterClass
+from services.nameService import NameService
 
 
 class Character5e:
@@ -35,6 +36,7 @@ class Character5e:
     saving_throw_proficiencies = []
     hp = 0
     alignment = ''
+    name = ''
 
     def get_character(self):
         self.saving_throw_proficiencies = []
@@ -54,6 +56,7 @@ class Character5e:
         self.total_hit_dice = self.level
         self.alignment = ''
         self.get_alignment()
+        self.name = NameService.generate_name()
         self.class_name = ''
         for (key, value) in sorted(self.class_levels.items()):
             self.class_name += str(value) + ' ' + key + ' '
