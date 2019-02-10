@@ -47,7 +47,6 @@ class CharacterClass:
             character.hit_dice_d12 = character.hit_dice_d12 + 1
 
         if len(character.saving_throw_proficiencies) == 0:
-            print("no proficiencies!", character.saving_throw_proficiencies)
             character.saving_throw_proficiencies.append(random_class.saving_throws[0])
             character.saving_throw_proficiencies.append(random_class.saving_throws[1])
 

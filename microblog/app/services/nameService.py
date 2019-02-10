@@ -23,10 +23,8 @@ class NameService:
         first_name = ''
         last_was_open_syllable = False
         for i in range(num_syllables):
-            print(last_was_open_syllable)
             if last_was_open_syllable:
                 if random.getrandbits(1):
-                    print('putting on closed syllable')
                     first_name += closed_syllables[random.randint(0, len(closed_syllables)-1)]
                     last_was_open_syllable = False
                 else:
@@ -41,10 +39,8 @@ class NameService:
         last_was_open_syllable = False
         if random.getrandbits(1):
             for i in range(num_syllables):
-                print(last_was_open_syllable)
                 if last_was_open_syllable:
                     if random.getrandbits(1):
-                        print('putting on closed syllable')
                         last_name += closed_syllables[random.randint(0, len(closed_syllables) - 1)]
                         last_was_open_syllable = False
                     else:

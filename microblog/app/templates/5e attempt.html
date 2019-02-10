@@ -23,13 +23,13 @@
                                 <span class="sheet-header-label">CLASS &amp; LEVEL</span>
                             </div>
                             <div class="sheet-hlabel-container">
-                                <input id="background" type="text">
+                                <input id="background" type="text" value="{{ character.background }}">
                                 <span class="sheet-header-label">BACKGROUND</span>
                             </div>
                         </div>
                         <div class="sheet-bottom row" style="width: 440px;margin-left: 14px!important;">
                             <div class="sheet-hlabel-container">
-                                <input id="race" class="sheet-no_events" type="text">
+                                <input id="race" class="sheet-no_events" type="text" value="{{ character.age }} year old {{ character.race_name }}">
                                 <span class="sheet-header-label">RACE</span>
                             </div>
                             <div class="sheet-hlabel-container">
@@ -37,7 +37,7 @@
                                 <span class="sheet-header-label">ALIGNMENT</span>
                             </div>
                             <div class="sheet-hlabel-container" style="position: relative">
-                                <input id="experience" type="text">
+                                <input id="experience" type="text" value ="{{ character.experience_required[character.level-1] }}/{{ character.experience_required[character.level] }}">
                                 <span class="sheet-header-label">EXPERIENCE POINTS</span>
                             </div>
                         </div>
@@ -136,92 +136,92 @@
                             <div class="sheet-skills-container sheet-skills-list">
                                 <div>
                                     <div class="sheet-skill">
-                                        <input name="attr_acrobatics_prof" title="acrobatics_prof" type="checkbox">
+                                        <input name="attr_acrobatics_prof" title="acrobatics_prof" type="checkbox" {% if character.acrobatics_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_acrobatics_bonus" title="acrobatics_bonus">{{ character.acrobatics }}</span>
                                         <span class="sheet-label">Acrobatics(Dex)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_animal_handling_prof" title="animal_handling_prof" type="checkbox">
+                                        <input name="attr_animal_handling_prof" title="animal_handling_prof" type="checkbox" {% if character.animal_handling_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_animal_handling_bonus" title="animal_handling_bonus">{{ character.animal_handling }}</span>
                                         <span class="sheet-label">Animal Handling(Wis)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_arcana_prof" title="arcana_prof" type="checkbox">
+                                        <input name="attr_arcana_prof" title="arcana_prof" type="checkbox" {% if character.arcana_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_arcana_bonus" title="arcana_bonus">{{ character.arcana }}</span>
                                         <span class="sheet-label">Arcana(Int)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_athletics_prof" title="athletics_prof" type="checkbox">
+                                        <input name="attr_athletics_prof" title="athletics_prof" type="checkbox" {% if character.athletics_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_athletics_bonus" title="athletics_bonus">{{ character.athletics }}</span>
                                         <span class="sheet-label">Athletics(Str)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_deception_prof" title="deception_prof" type="checkbox">
+                                        <input name="attr_deception_prof" title="deception_prof" type="checkbox" {% if character.deception_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_deception_bonus" title="deception_bonus">{{ character.deception }}</span>
                                         <span class="sheet-label">Deception(Cha)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_history_prof" title="history_prof" type="checkbox">
+                                        <input name="attr_history_prof" title="history_prof" type="checkbox" {% if character.history_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_history_bonus" title="history_bonus">{{ character.history }}</span>
                                         <span class="sheet-label">History(Int)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_insight_prof" title="insight_prof" type="checkbox">
+                                        <input name="attr_insight_prof" title="insight_prof" type="checkbox" {% if character.insight_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_insight_bonus" title="insight_bonus">{{ character.insight }}</span>
                                         <span class="sheet-label">Insight(Wis)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_intimidation_prof" title="intimidation_prof" type="checkbox">
+                                        <input name="attr_intimidation_prof" title="intimidation_prof" type="checkbox" {% if character.intimidation_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_intimidation_bonus" title="intimidation_bonus">{{ character.intimidation }}</span>
                                         <span class="sheet-label">Intimidation(Cha)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_investigation_prof" title="investigation_prof" type="checkbox">
+                                        <input name="attr_investigation_prof" title="investigation_prof" type="checkbox" {% if character.investigation_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_investigation_bonus" title="investigation_bonus">{{ character.investigation }}</span>
                                         <span class="sheet-label">Investigation(Int)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_medicine_prof" title="medicine_prof" type="checkbox">
+                                        <input name="attr_medicine_prof" title="medicine_prof" type="checkbox" {% if character.medicine_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_medicine_bonus" title="medicine_bonus">{{ character.medicine }}</span>
                                         <span class="sheet-label">Medicine(Wis)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_nature_prof" title="nature_prof" type="checkbox">
+                                        <input name="attr_nature_prof" title="nature_prof" type="checkbox" {% if character.nature_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_nature_bonus" title="nature_bonus">{{ character.nature }}</span>
                                         <span class="sheet-label">Nature(Int)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_perception_prof" title="perception_prof" type="checkbox">
+                                        <input name="attr_perception_prof" title="perception_prof" type="checkbox" {% if character.perception_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_perception_bonus" title="perception_bonus">{{ character.perception }}</span>
                                         <span class="sheet-label">Perception(Wis)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_performance_prof" title="performance_prof" type="checkbox">
+                                        <input name="attr_performance_prof" title="performance_prof" type="checkbox" {% if character.performance_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_performance_bonus" title="performance_bonus">{{ character.performance }}</span>
                                         <span class="sheet-label">Performance(Cha)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_persuasion_prof" title="persuasion_prof" type="checkbox">
+                                        <input name="attr_persuasion_prof" title="persuasion_prof" type="checkbox" {% if character.persuasion_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_persuasion_bonus" title="persuasion_bonus">{{ character.persuasion }}</span>
                                         <span class="sheet-label">Persuasion(Cha)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_religion_prof" title="religion_prof" type="checkbox">
+                                        <input name="attr_religion_prof" title="religion_prof" type="checkbox" {% if character.religion_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_religion_bonus" title="religion_bonus">{{ character.religion }}</span>
                                         <span class="sheet-label">Religion(Int)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_sleight_of_hand_prof" title="sleight_of_hand_prof" type="checkbox">
+                                        <input name="attr_sleight_of_hand_prof" title="sleight_of_hand_prof" type="checkbox" {% if character.sleight_of_hand_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_sleight_of_hand_bonus" title="sleight_of_hand_bonus">{{ character.sleight_of_hand }}</span>
                                         <span class="sheet-label">Sleight of Hand(Dex)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_stealth_prof" title="stealth_prof" type="checkbox">
+                                        <input name="attr_stealth_prof" title="stealth_prof" type="checkbox" {% if character.stealth_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_stealth_bonus" title="stealth_bonus">{{ character.stealth }}</span>
                                         <span class="sheet-label">Stealth(Dex)</span>
                                     </div>
                                     <div class="sheet-skill">
-                                        <input name="attr_survival_prof" title="survival_prof" type="checkbox">
+                                        <input name="attr_survival_prof" title="survival_prof" type="checkbox" {% if character.survival_proficiency %} checked {% endif %}>
                                         <span class="skill-bonus" name="attr_survival_bonus" title="survival_bonus">{{ character.survival }}</span>
                                         <span class="sheet-label">Survival(Wis)</span>
                                     </div>
@@ -244,7 +244,7 @@
                                     <span class="sheet-label">INITIATIVE</span>
                                 </div>
                                 <div class="sheet-speed">
-                                    <input id="speed" title="Speed" type="text">
+                                    <input id="speed" title="Speed" type="text" value="{{ character.move_speed_ft }}">
                                     <span class="sheet-label">SPEED</span>
                                 </div>
                             </div>

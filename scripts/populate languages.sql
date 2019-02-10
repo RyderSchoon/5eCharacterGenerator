@@ -1,0 +1,17 @@
+insert into languages (language_name, script_type) values ('Common','Common');
+insert into languages (language_name, script_type) values ('Dwarvish','Dwarvish');
+insert into languages (language_name, script_type) values ('Elvish','Elvish');
+insert into languages (language_name, script_type) values ('Giant','Dwarvish');
+insert into languages (language_name, script_type) values ('Gnomish','Dwarvish');
+insert into languages (language_name, script_type) values ('Goblin','Dwarvish');
+insert into languages (language_name, script_type) values ('Halfling','Dwarvish');
+insert into languages (language_name, script_type) values ('Orc','Dwarvish');
+insert into languages (language_name, script_type) values ('Abyssal','Infernal');
+insert into languages (language_name, script_type) values ('Celestial','Celestial');
+insert into languages (language_name, script_type) values ('Draconic','Draconic');
+insert into languages (language_name, script_type) values ('Deep Speech','None');
+insert into languages (language_name, script_type) values ('Infernal','Infernal');
+insert into languages (language_name, script_type) values ('Primordial','Dwarvish');
+insert into languages (language_name, script_type) values ('Sylvan','Elvish');
+insert into languages (language_name, script_type) values ('Undercommon','Elvish');
+insert into languages (language_name, script_type) values ('Druidic','None');
