@@ -295,7 +295,7 @@
                     <div class="sheet-col sheet-col-following">
                         <div id="personality-traits" class="sheet-textbox sheet-textbox-top">
                             <div class="sheet-options">
-                                <textarea class="sheet-textarea" name="attr_personality_traits" style="min-height: 50px ; height: 50px"></textarea>
+                                <textarea class="sheet-textarea" name="attr_personality_traits" style="min-height: 50px ; height: 50px" >{{ character.personality_traits }}</textarea>
                             </div>
                             <div class="sheet-display">
                                 <span id="personality-traits-text"></span>
@@ -304,19 +304,19 @@
                         </div>
                         <div id="ideals" class="sheet-textbox sheet-textbox-mid">
                             <div class="sheet-options">
-                                <textarea class="sheet-textarea" name="ideas-text" style="min-height: 50px ; height: 50px"></textarea>
+                                <textarea class="sheet-textarea" name="ideas-text" style="min-height: 50px ; height: 50px">{{ character.ideals }}</textarea>
                             </div>
-                            <span class="sheet-label">IDEAS</span>
+                            <span class="sheet-label">IDEALS</span>
                         </div>
                         <div id="bonds" class="sheet-textbox sheet-textbox-mid">
                             <div class="sheet-options">
-                                <textarea class="sheet-textarea" name="bonds-text" style="min-height: 50px ; height: 50px"></textarea>
+                                <textarea class="sheet-textarea" name="bonds-text" style="min-height: 50px ; height: 50px">{{ character.bonds }}</textarea>
                             </div>
                             <span class="sheet-label">BONDS</span>
                         </div>
                         <div id="flaws" class="sheet-textbox sheet-textbox-bottom">
                             <div class="sheet-options">
-                                <textarea class="sheet-textarea" name="flaws-text" style="min-height: 50px ; height: 50px"></textarea>
+                                <textarea class="sheet-textarea" name="flaws-text" style="min-height: 50px ; height: 50px">{{ character.flaws }}</textarea>
                             </div>
                             <span class="sheet-label">FLAWS</span>
                         </div>

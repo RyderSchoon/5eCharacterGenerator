@@ -16,6 +16,9 @@ class Character5e:
     strength_save_proficiency, dexterity_save_proficiency, constitution_save_proficiency, \
     intelligence_save_proficiency, wisdom_save_proficiency, charisma_save_proficiency = False, False, False, \
                                                                                         False, False, False,
+    strength_save_expertise, dexterity_save_expertise, constitution_save_expertise, \
+    intelligence_save_expertise, wisdom_save_expertise, charisma_save_expertise = False, False, False, \
+                                                                                  False, False, False,
     acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation, \
     medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival = 0, 0, 0, \
                                                                                                           0, 0, 0, \
@@ -29,6 +32,12 @@ class Character5e:
     performance_proficiency, persuasion_proficiency, religion_proficiency, sleight_of_hand_proficiency, \
     stealth_proficiency, survival_proficiency = False, False, False, False, False, False, False, False, False, \
                                                 False, False, False, False, False, False, False, False, False
+    acrobatics_expertise, animal_handling_expertise, arcana_expertise, athletics_expertise, \
+    deception_expertise, history_expertise, insight_expertise, intimidation_expertise, \
+    investigation_expertise, medicine_expertise, nature_expertise, perception_expertise, \
+    performance_expertise, persuasion_expertise, religion_expertise, sleight_of_hand_expertise, \
+    stealth_expertise, survival_expertise = False, False, False, False, False, False, False, False, False, \
+                                            False, False, False, False, False, False, False, False, False
     experience_required = [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000,
                            165000, 195000, 225000, 265000, 305000, 335000, 335000]
     proficiencyBonus = 0
@@ -46,6 +55,7 @@ class Character5e:
     race_name = ''
     age = 0
     move_speed_ft = 0
+    personaility_traits, flaws, ideals, bonds = '', '', '', ''
 
     def __init__(self, session):
         self.session = session

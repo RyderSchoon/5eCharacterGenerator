@@ -1,7 +1,7 @@
 import random
 
 from models.race import Race
-from models.stat_improvement import StatImprovement
+from models.statImprovement import StatImprovement
 from services.statImprovementService import StatImprovementService
 
 
