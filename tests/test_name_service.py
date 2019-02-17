@@ -2,7 +2,7 @@ import os
 import sys
 
 myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, myPath + '/../microblog/app/')
+sys.path.insert(0, myPath + '/../5eCharacterGenerator/app/')
 
 from viewModels.characterModel import CharacterModel
 from services.nameService import NameService
