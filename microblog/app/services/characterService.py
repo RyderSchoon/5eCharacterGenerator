@@ -28,7 +28,7 @@ class CharacterService:
         character.total_hit_dice = character.level
         character.alignment = ''
         get_alignment(character)
-        NameService.set_name(character)
+        NameService.set_racial_name(character)
         character.class_name = ''
         character.gender =  'male' if random.getrandbits(1) else 'female'
 

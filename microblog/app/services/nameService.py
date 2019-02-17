@@ -6,8 +6,12 @@ from dataModels.name import Name
 class NameService:
 
     @staticmethod
-    def set_name(character):
+    def set_racial_name(character):
         character.name = get_racial_name(character)
+
+    @staticmethod
+    def set_generated_name(character):
+        character.name = generate_name()
 
 
 def get_racial_name(character):
