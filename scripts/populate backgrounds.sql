@@ -1018,7 +1018,7 @@ insert into backgrounds (name) values ("Urchin");
 	insert into background_traits (trait_type, background_id, trait_text) 
 		values("ideal",(select background_id from backgrounds where name = "Urchin"),"Retribution. The rich need to be shown what life and death are like in the gutters.");
 	insert into background_traits (trait_type, background_id, trait_text) 
-		values("ideal",(select background_id from backgrounds where name = "Urchin"),"People. I help the people who help me-that's what keeps us alive. ");
+		values("ideal",(select background_id from backgrounds where name = "Urchin"),"People. I help the people who help me—that's what keeps us alive. ");
 	insert into background_traits (trait_type, background_id, trait_text) 
 		values("ideal",(select background_id from backgrounds where name = "Urchin"),"Aspiration. I'm going to prove that I'm worthy of a better life.");
 	insert into background_traits (trait_type, background_id, trait_text) 

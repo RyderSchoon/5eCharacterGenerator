@@ -1,20 +1,21 @@
 from app import app
 from flask import render_template
-from models.character5e import Character5e
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+
+from services.characterService import CharacterService
+from viewModels.characterModel import CharacterModel
+
+engine = create_engine('mysql://root:root@localhost:3306/character_generator')
+engine.connect()
 
 
 @app.route('/')
 @app.route('/index')
 def index():
+    session_maker = sessionmaker(bind=engine)
+    session = session_maker()
 
-    engine = create_engine('mysql://root:root@localhost:3306/character_generator')
-    conn = engine.connect()
-
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    character = Character5e(session).get_character()
+    character = CharacterModel(session)
+    CharacterService.randomize_character(character)
     return render_template('5e attempt.html', character=character)

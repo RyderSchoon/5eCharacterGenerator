@@ -1,7 +1,7 @@
 import random
 
-from models.race import Race
-from models.statImprovement import StatImprovement
+from dataModels.race import Race
+from dataModels.statImprovement import StatImprovement
 from services.statImprovementService import StatImprovementService
 
 
@@ -13,7 +13,7 @@ class RaceService:
 
         random_race = races[random.randint(0, len(races) - 1)]
 
-        character.race_name = random_race.name
+        character.race = random_race
         character.age = random.randint(random_race.adulthood_age, random_race.max_age)
         character.move_speed_ft = random_race.move_speed_ft
 
@@ -28,5 +28,6 @@ def get_races(session):
 
 
 def get_race_improvements(session, race):
-    return session.query(StatImprovement).filter(
-        StatImprovement.source_id == race.race_id and StatImprovement.source_type == 'racial')
+    return session.query(StatImprovement)\
+        .filter(StatImprovement.source_id == race.race_id)\
+        .filter(StatImprovement.source_type == 'racial').all()

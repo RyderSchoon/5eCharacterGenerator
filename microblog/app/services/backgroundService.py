@@ -1,8 +1,8 @@
 import random
 
-from models.background import Background
-from models.backgroundTrait import BackgroundTrait
-from models.proficiency import Proficiency
+from dataModels.background import Background
+from dataModels.backgroundTrait import BackgroundTrait
+from dataModels.proficiency import Proficiency
 from services.proficiencyService import ProficiencyService
 from html import unescape
 
