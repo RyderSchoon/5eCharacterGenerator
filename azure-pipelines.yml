@@ -54,3 +54,7 @@ jobs:
 
   - script: python setup.py sdist
     displayName: 'Build sdist'
+
+  - script: |
+      docker login -u $(5echaractergenerator) -p $(MuDgmqkr8BEJJXQ)
+      docker push $(5echaractergenerator)/$(5echaractergenerator)
