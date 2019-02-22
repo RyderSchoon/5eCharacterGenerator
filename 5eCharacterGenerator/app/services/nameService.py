@@ -1,5 +1,7 @@
 import random
 
+from sqlalchemy import or_
+
 from dataModels.name import Name
 
 
@@ -29,25 +31,15 @@ def get_racial_name(character):
 
 
 def get_first_names(character):
-    racial_frst_names = character.session.query(Name).filter(
+    return character.session.query(Name).filter(
         Name.name_type == 'first').filter(
-        Name.race_id == character.race.race_id)
-    gendered = racial_frst_names.filter(
-        Name.gender == character.gender)
-    agender = racial_frst_names.filter(
-        Name.gender == 'any')
-    return gendered.all() + agender.all()
+        Name.race_id == character.race.race_id).filter(or_(Name.gender == character.gender, Name.gender == 'any')).all()
 
 
 def get_last_names(character):
-    racial_frst_names = character.session.query(Name).filter(
+    return character.session.query(Name).filter(
         Name.name_type == 'last').filter(
-        Name.race_id == character.race.race_id)
-    gendered = racial_frst_names.filter(
-        Name.gender == character.gender)
-    agender = racial_frst_names.filter(
-        Name.gender == 'any')
-    return gendered.all() + agender.all()
+        Name.race_id == character.race.race_id).filter(or_(Name.gender == character.gender, Name.gender == 'any')).all()
 
 
 def generate_name():
